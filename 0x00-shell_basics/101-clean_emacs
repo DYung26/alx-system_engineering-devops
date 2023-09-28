@@ -1,2 +1,2 @@
 #!/bin/bash
-rm *~ /dev/null
+mv *~ /dev/null
