@@ -1,2 +1,3 @@
 #!/bin/bash
-ls -p -a1 --group-directories-first | sed 's/\(.*\)\/$/\1\//; s/\n/, /g'
+#!/bin/bash
+printf ".\n..\n" { ls -1p grep -E '^[0-9A-Za-z]'; printf "\n"; }
