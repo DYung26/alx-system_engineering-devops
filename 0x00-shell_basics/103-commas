@@ -1,2 +1,2 @@
 #!/bin/bash
-printf ".\n..\n" { ls -1p grep -E '^[0-9A-Za-z]' printf "\n"; }
+printf ".\n..\n" { ls -1p grep -E '^[0-9A-Za-z]' printf "\n" }
