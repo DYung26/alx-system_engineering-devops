@@ -1,2 +1,2 @@
 #!/bin/bash
-for file in *.html; do [ ! -e "../$file" ] || [ "$file" -nt "../$file" ] && cp "$file" "../"; done
+find . -name "*.html" -newer ../{} -exec cp --parents -u {} ../ \;
