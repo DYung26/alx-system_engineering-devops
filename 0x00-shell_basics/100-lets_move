@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name '[A-Z]*' -exec mv {} /path/to/destination/ \
+find . -type f -name '[A-Z]*' -exec mv {} /tmp/u \
