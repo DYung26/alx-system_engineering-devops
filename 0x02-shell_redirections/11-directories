@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -dAR .*/ */.*/ */ */*/ | wc -l
+ls -A | grep -v '^(\.|..)$' | wc -l
