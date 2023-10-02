@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -lAd */ | wc -l
+ls -ld ./*/ | wc -l
