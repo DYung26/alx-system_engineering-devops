@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -iname "*.gif" -exec sh -c 'for file; do echo "${file##*/}" | sed 's/\.gif$//'; done' sh {} + | LC_ALL=C sort -f
+find . -type f -iname "*.gif" -exec basename -s .gif {} + | LC_ALL=C sort -f
