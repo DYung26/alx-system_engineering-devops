@@ -1,2 +1,2 @@
 #!/bin/bash
-sort
+awk -F':' '{ for(i=1; i<=7; i++) { printf $i; if (i < 7) printf ":"; } print "" }' /etc/passwd
