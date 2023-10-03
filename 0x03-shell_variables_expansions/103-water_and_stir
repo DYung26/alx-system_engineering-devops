@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%s\n" "$(($(echo $WATER | tr 'water' '01234') + $(echo $STIR | tr 'stir.' '01234')))" | tr '0123456789ABCDEF' 'bestchol'
+printf "%s\n" "$((0x$(echo $WATER | tr 'water' '01234') + 0x$(echo $STIR | tr 'stir.' '01234')))" | tr '0123456789ABCDEF' 'bestchol'
