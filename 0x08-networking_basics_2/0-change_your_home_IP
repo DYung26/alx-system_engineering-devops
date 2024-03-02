@@ -2,9 +2,9 @@
 # `localhost` resolves to `127.0.0.2` and `facebook` resolves to `8.8.8.8`.
 
 cp /etc/hosts ./hosts.new
-sed -i 's/^127.*$/127.0.0.2	localhost/' ./hosts.new
+# sed -i 's/^127.*$/127.0.0.2	localhost/' ./hosts.new
 # sed -i s/^127.0.0.2  localhost*$// ./hosts.new
-# sudo sed -i '1s/.*/127.0.0.2	localhost/' ./hosts.new
+sudo sed -i '1s/.*/127.0.0.2	localhost/' ./hosts.new
 cp -f ./hosts.new /etc/hosts
 # echo "127.0.0.2 localhost" | sudo tee /etc/hosts.new > /dev/null
 # sudo mv /etc/hosts.new /etc/hosts
