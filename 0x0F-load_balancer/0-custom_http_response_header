@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Script that configures Nginx server with a custom header
-sudo ./1-install_nginx_web_server
+sudo apt-get update -y -qq && \
+         sudo apt-get install nginx -y
 sudo touch /usr/share/nginx/html/custom_404.html
 sudo chown www-data:www-data /usr/share/nginx/html/custom_404.html
 sudo chmod 664 /usr/share/nginx/html/custom_404.html
