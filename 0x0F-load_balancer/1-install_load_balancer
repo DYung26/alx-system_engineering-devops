@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Installs and setup haproxy
 
-apt-get install -y software-properties-common
-add-apt-repository -y ppa:vbernat/haproxy-1.8
+# apt-get install -y software-properties-common
+# add-apt-repository -y ppa:vbernat/haproxy-1.8
 apt-get -y update
-apt-get install -y haproxy=1.8.\*
-
-echo "ENABLED=1" > /etc/default/haproxy
+apt-get install -y haproxy # =1.8.\*
+cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.default
+# echo "ENABLED=1" > /etc/default/haproxy
 
 # Listen to web1 and web2 servers                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 echo "
