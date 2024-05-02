@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# a Bash script that displays information about subdomains.
+# shellcheck disable=SC2086
+
+dns_info() {
+	domain=$2
+	rec=$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk 'NR==2 {print $4}')
+	ip=$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk 'NR==2 {print $5}')
+	echo "The subdomain $domain is a $rec record and points to $ip"
+}
+
+if [ $# -ge 1 ]; then
+	if [ $# == 2 ]; then
+		dns_info $1 $2
+	else
+		dns_info $1 "www"
+		dns_info $1 "lb-01"
+		dns_info $1 "web-01"
+		dns_info $1 "web-02"
+	fi
+fi
