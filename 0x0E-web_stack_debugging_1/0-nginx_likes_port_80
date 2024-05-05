@@ -6,6 +6,6 @@ sudo apt-get install nginx
 
 sudo service nginx restart
 
-sed -i 's/^\s*listen\s*.*$/    listen 80;'/ /etc/nginx/nginx.conf
+sed -i 's/^\s*listen\s*.*$/    listen 80;/' /etc/nginx/nginx.conf
 
 sudo service nginx restart
