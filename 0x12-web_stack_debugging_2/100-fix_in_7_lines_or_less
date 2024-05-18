@@ -3,4 +3,5 @@
 chmod 644 /etc/nginx/nginx.conf
 sudo sed -i "s/^#user .*/user nginx nginx/" /etc/nginx/nginx.conf
 sudo sed -i "s/80/8080/g" /etc/nginx/sites-available/default
+pkill apache2
 sudo -u nginx service nginx restart
