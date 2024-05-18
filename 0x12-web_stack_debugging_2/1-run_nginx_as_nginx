@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Run Nginx as Nginx
+
+sed "s/user/user nginx nginx;/" /etc/nginx/nginx.conf
+sed "s/\tlisten/\tlisten 8080;/" /etc/nginx/nginx.conf
+sed "s/\tserver_name/\tserver_name _;/" /etc/nginx/nginx.conf
+sudo service nginx restart
