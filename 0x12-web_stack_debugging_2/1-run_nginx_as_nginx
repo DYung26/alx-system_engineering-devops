@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Run Nginx as Nginx
 
-sed "s/user/user nginx nginx;/" /etc/nginx/nginx.conf
-sed "s/    listen .*/    listen 8080;/" /etc/nginx/nginx.conf
-sed "s/    server_name .*/    server_name _;/" /etc/nginx/nginx.conf
+sudo sed -i "s/^user .*/user nginx nginx;/" /etc/nginx/nginx.conf
+sudo sed -i "s/^    listen .*/    listen 8080;/" /etc/nginx/nginx.conf
+sudo sed -i "s/^    server_name .*/    server_name _;/" /etc/nginx/nginx.conf
 sudo service nginx restart
