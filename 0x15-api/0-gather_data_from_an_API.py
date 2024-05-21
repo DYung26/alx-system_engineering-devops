@@ -9,9 +9,9 @@ task titles.
 """
 
 if __name__ == '__main__':
-    import sys
-    import requests
     import json
+    import requests
+    import sys
 
     base_url = 'https://jsonplaceholder.typicode.com/'
     r = requests.get(f'{base_url}/users/{sys.argv[1]}/').json()
