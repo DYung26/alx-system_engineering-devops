@@ -1,26 +1,19 @@
 #!/usr/bin/python3
-"""
-A script to fetch user data and their to-do list from the
-JSONPlaceholder API, and write the data to a JSON file.
-"""
+"""Exports to-do list information for a given employee ID to JSON format."""
+import json
+import requests
+import sys
 
 if __name__ == "__main__":
-    import json
-    import requests
-    import sys
-
-    base_url = 'https://jsonplaceholder.typicode.com/'
     user_id = sys.argv[1]
-    r = requests.get(f'{base_url}/users/{user_id}/').json()
-    r_todo = requests.get(f'{base_url}/users/{user_id}/todos').json()
+    url = "https://jsonplaceholder.typicode.com/"
+    user = requests.get(url + "users/{}".format(user_id)).json()
+    username = user.get("username")
+    todos = requests.get(url + "todos", params={"userId": user_id}).json()
 
-    output_file = f"{user_id}.json"
-    with open(output_file, 'w', newline='') as jsonfile:
-        task_list = []
-
-        for todo in r_todo:
-            task_list.append({"task": f'{todo["title"]}',
-                              "completed": f'{todo["completed"]}',
-                              "username": f'{r["username"]}'})
-        json_data = {f"{user_id}": task_list}
-        json.dump(json_data, jsonfile)
+    with open("{}.json".format(user_id), "w") as jsonfile:
+        json.dump({user_id: [{
+                "task": t.get("title"),
+                "completed": t.get("completed"),
+                "username": username
+            } for t in todos]}, jsonfile)
