@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Takes the name of a subreddit and returns the number of subscribers."""
 import requests
 
