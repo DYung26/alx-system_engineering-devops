@@ -38,7 +38,7 @@ def cout_words(subreddit, word_list, hot_list, after=None):
         after = response.json()["data"]["after"]
         count_words(subreddit, word_list, hot_list, after)
         for word in word_list:
-            count = ' '.join(hot_list).count(word)
+            count = ' '.join(hot_list).lower().split().count(word.lower())
             print(f"{word}: {count}")
     else:
         print("")
