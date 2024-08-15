@@ -20,5 +20,5 @@ def number_of_subscribers(subreddit):
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 200:
         return (response.json()["data"]["subscribers"])
-    else:
+    elif response.status_code == 404:
         return (0)
