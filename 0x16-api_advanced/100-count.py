@@ -49,7 +49,6 @@ def cout_words(subreddit, word_list, hot_list=[], after=None):
                                                                   kv[0]))
 
         for word, count in sorted_words:
-            count = ' '.join(hot_list).lower().split().count(word.lower())
             print(f"{word}: {count}")
     else:
         print("")
