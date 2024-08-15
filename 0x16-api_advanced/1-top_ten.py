@@ -25,4 +25,4 @@ def top_ten(subreddit):
         for hot_post in hot_posts:
             print(hot_post["data"]["title"])
     else:
-        print("None")
+        print(None)
