@@ -21,7 +21,7 @@ def top_ten(subreddit):
     }
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 200:
-        hot_post = response.json()["data"]["children"]
+        hot_posts = response.json()["data"]["children"]
         for hot_post in hot_posts:
             print(hot_post["data"]["title"])
     else:
