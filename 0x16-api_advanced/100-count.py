@@ -6,7 +6,7 @@ Recursively fetches and counts the occurrences of specified words...
 import requests
 
 
-def cout_words(subreddit, word_list, hot_list, after=None):
+def cout_words(subreddit, word_list, hot_list=[], after=None):
     """
     Recursively fetches the titles of all hot posts for the specified subreddit
     and counts the occurrences of words from the word_list in the titles.
