@@ -38,6 +38,17 @@ def cout_words(subreddit, word_list, hot_list=[], after=None):
         after = response.json()["data"]["after"]
         count_words(subreddit, word_list, hot_list, after)
         for word in word_list:
+            word_lower = word.lower()
+            word_count[word_lower] = \
+                sum(title.lower().split().count(word_lower)
+                    for title in hot_list)
+
+        word_count = {k: v for k, v in word_count.items() if v > 0}
+
+        sorted_words = sorted(word_count.items(), key=lambda kv: (-kv[1],
+                                                                  kv[0]))
+
+        for word, count in sorted_words:
             count = ' '.join(hot_list).lower().split().count(word.lower())
             print(f"{word}: {count}")
     else:
