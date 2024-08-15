@@ -1,16 +1,21 @@
 #!/usr/bin/python3
-"""Module to recursively fetch and print the titles of all hot posts of a given subreddit."""
+"""
+Recursively fetches and prints the titles of all hot posts of a subreddit
+"""
 import requests
 
 
 def recurse(subreddit, hot_list=[], after=None):
     """
-    Recursively fetches the titles of all hot posts for the specified subreddit.
+    Recursively fetches the titles of all hot posts...
+    ...for the specified subreddit.
 
     Arguments:
     subreddit -- the name of the subreddit you want to check (string)
-    hot_list -- a list that stores the titles of the hot posts (default is an empty list)
-    after -- a string indicating the "after" parameter used for pagination (default is None)
+    hot_list -- a list that stores the titles of the hot posts
+                (default is an empty list)
+    after -- a string indicating the "after" parameter used for pagination
+             (default is None)
 
     Returns:
     hot_list -- a list containing the titles of all hot posts if successful
@@ -27,8 +32,8 @@ def recurse(subreddit, hot_list=[], after=None):
         hot_posts = response.json()["data"]["children"]
         for hot_post in hot_posts:
             hot_list.append(hot_post["data"]["title"])
-        after = response.json()["data"]["after"]
-      
+        after = response.json()["data"]["after"
+
         recurse(subreddit, hot_list, after)
     else:
         return None
