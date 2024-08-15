@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Module for storing the count_words function. """
-from requests import get
+import requests
 
 
 def count_words(subreddit, word_list, word_count=[], page_after=None):
@@ -8,7 +8,11 @@ def count_words(subreddit, word_list, word_count=[], page_after=None):
     Prints the count of the given words present in the title of the
     subreddit's hottest articles.
     """
-    headers = {'User-Agent': 'HolbertonSchool'}
+    headers = {
+            'User-Agent': 'python:myapp:v1.0 (by /u/DYung06)',
+            'Accept-Encoding': 'gzip, deflate, br, zstd',
+            'Accept-Language': 'en-GB,en;q=0.9,en-US;q=0.8',
+    }
 
     word_list = [word.lower() for word in word_list]
 
@@ -18,7 +22,7 @@ def count_words(subreddit, word_list, word_count=[], page_after=None):
 
     if page_after is None:
         url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
-        r = get(url, headers=headers, allow_redirects=False)
+        r = requests.get(url, headers=headers, allow_redirects=False)
         if r.status_code == 200:
             for child in r.json()['data']['children']:
                 i = 0
@@ -36,7 +40,7 @@ def count_words(subreddit, word_list, word_count=[], page_after=None):
         url = ('https://www.reddit.com/r/{}/hot.json?after={}'
                .format(subreddit,
                        page_after))
-        r = get(url, headers=headers, allow_redirects=False)
+        r = requests.get(url, headers=headers, allow_redirects=False)
 
         if r.status_code == 200:
             for child in r.json()['data']['children']:
